@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script>
+/* ════════════════════════════════════════════════════════════════
+   PASTE YOUR GOOGLE MEET LINK BETWEEN THE QUOTES BELOW.
+   Leave it empty and the button politely says "link coming soon".
+   ════════════════════════════════════════════════════════════════ */
+const MEET_LINK = "";
+</script>
+
+<title>Karan &amp; Lehar — Godh Bharai · 20 September</title>
+<meta name="description" content="A godh bharai for the little one on the way. Sunday, 20 September 2026, from 10:45 AM IST — join us online, wherever you are.">
+<meta name="theme-color" content="#FFF3E2">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Karan &amp; Lehar — Godh Bharai">
+<meta property="og:description" content="Sunday, 20 September 2026 · from 10:45 AM IST · Join us online, wherever you are.">
+<meta property="og:image" content="https://karankap00r.github.io/karan-lehar-baby-shower/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Jost:wght@300;400;500&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23F5A623'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23E2761B'/%3E%3C/svg%3E">
+
+<style>
+:root{
+  --ivory:#FFF3E2;
+  --ivory-deep:#FBE4C4;
+  --ink:#3A0E1B;
+  --rose:#97123F;
+  --rose-deep:#6B0A2B;
+  --marigold:#F5A623;
+  --marigold-deep:#DD6F17;
+  --gold:#B08331;
+  --leaf:#55703F;
+
+  --strand-gap:26px;
+  --bloom:14px;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ivory);
+  color:var(--ink);
+  font-family:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-weight:300;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* jaali — a faint lattice screen behind everything */
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    repeating-linear-gradient(45deg, rgba(176,131,49,.16) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(-45deg, rgba(176,131,49,.16) 0 1px, transparent 1px 22px);
+  -webkit-mask-image:radial-gradient(120% 80% at 50% 12%, #000 0%, transparent 72%);
+          mask-image:radial-gradient(120% 80% at 50% 12%, #000 0%, transparent 72%);
+}
+body::after{
+  content:"";
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(90% 55% at 50% 4%, var(--ivory-deep) 0%, transparent 62%);
+}
+.page{position:relative; z-index:1}
+
+/* ───────────────── toran: marigolds hung across the doorway ───────────────── */
+.toran{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  gap:var(--strand-gap);
+  height:200px;
+  overflow:hidden;
+  padding-top:7px;
+}
+.toran::before{ /* the thread */
+  content:"";
+  position:absolute; left:-4%; right:-4%; top:6px; height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold) 6%,var(--gold) 94%,transparent);
+  opacity:.55;
+  border-radius:2px;
+}
+.strand{
+  flex:0 0 auto;
+  display:flex; flex-direction:column; align-items:center;
+  transform-origin:50% 0;
+  animation:drop .9s cubic-bezier(.2,.9,.3,1.05) backwards;
+}
+.swing{
+  display:flex; flex-direction:column; align-items:center;
+  transform-origin:50% 0;
+  animation:sway 4.4s ease-in-out infinite;
+}
+.bloom{
+  width:var(--bloom); height:var(--bloom); border-radius:50%;
+  margin-bottom:-3px;
+  background:radial-gradient(circle at 36% 32%, #FFD27A 0%, var(--marigold) 42%, var(--marigold-deep) 100%);
+  box-shadow:inset 0 -2px 3px rgba(122,52,6,.30);
+}
+.bloom.rose{
+  background:radial-gradient(circle at 36% 32%, #E8799B 0%, #C42558 45%, var(--rose-deep) 100%);
+  box-shadow:inset 0 -2px 3px rgba(60,4,20,.35);
+}
+.leaf{
+  width:9px; height:17px;
+  margin-bottom:-2px;
+  border-radius:50% 4px 50% 4px;
+  background:linear-gradient(160deg,#6E8A54,var(--leaf));
+  transform:rotate(12deg);
+}
+@keyframes drop{ from{transform:translateY(-118%)} to{transform:translateY(0)} }
+@keyframes sway{ 0%,100%{transform:rotate(-2.6deg)} 50%{transform:rotate(2.6deg)} }
+
+/* ───────────────── the invitation, framed as a doorway ───────────────── */
+.invite{
+  display:flex; justify-content:center;
+  padding:0 20px 92px;
+}
+.card{width:100%; max-width:560px}
+
+.arch{display:block; width:100%; height:auto; margin-bottom:-1px}
+.arch path{
+  fill:none; stroke:var(--gold); stroke-width:1.4; stroke-linecap:round;
+  animation:draw 1.5s .55s ease-out backwards;
+}
+.arch path.inner{stroke-width:.7; opacity:.5; animation-delay:.75s}
+@keyframes draw{ from{stroke-dashoffset:var(--len)} to{stroke-dashoffset:0} }
+
+.card-body{
+  border-left:1.4px solid var(--gold);
+  border-right:1.4px solid var(--gold);
+  padding:8px 30px 54px;
+  text-align:center;
+  position:relative;
+}
+.card-body::after{ /* the frame dissolves rather than stopping dead */
+  content:"";
+  position:absolute; left:-1.4px; right:-1.4px; bottom:0; height:110px;
+  background:linear-gradient(to bottom, transparent, var(--ivory) 88%);
+  pointer-events:none;
+}
+
+.reveal{animation:rise .9s ease-out backwards}
+@keyframes rise{ from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none} }
+
+.eyebrow{
+  margin:0 0 4px;
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:clamp(1.15rem,4.4vw,1.45rem);
+  color:var(--rose);
+  line-height:1.45;
+}
+.eyebrow small{
+  display:block;
+  font-family:'Jost',sans-serif;
+  font-size:.66rem; font-weight:400;
+  letter-spacing:.42em; text-indent:.42em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-top:8px;
+}
+
+h1{
+  margin:.28em 0 0;
+  font-family:'Fraunces',Georgia,serif;
+  font-variation-settings:'SOFT' 40,'WONK' 1,'opsz' 120;
+  font-weight:500;
+  font-size:clamp(2.9rem,12.5vw,4.6rem);
+  line-height:1.02;
+  letter-spacing:-.018em;
+  color:var(--ink);
+}
+h1 .amp{
+  display:block;
+  font-style:italic; font-weight:300;
+  font-size:.46em; line-height:1.5;
+  color:var(--rose);
+}
+
+.lede{
+  margin:1.05em auto 0;
+  max-width:23em;
+  font-size:clamp(1rem,3.7vw,1.1rem);
+  color:rgba(58,14,27,.78);
+}
+.lede em{font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400}
+
+/* lotus rule */
+.rule{display:flex; align-items:center; gap:14px; margin:34px auto 30px; max-width:250px}
+.rule i{flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--gold))}
+.rule i+i{background:linear-gradient(90deg,var(--gold),transparent)}
+.rule svg{flex:0 0 auto; width:26px; height:26px; fill:var(--rose); opacity:.9}
+
+.when{line-height:1}
+.when .day{
+  font-size:.68rem; font-weight:400;
+  letter-spacing:.44em; text-indent:.44em;
+  text-transform:uppercase; color:var(--gold);
+}
+.when .date{
+  margin:12px 0 6px;
+  font-family:'Fraunces',Georgia,serif;
+  font-variation-settings:'SOFT' 40,'opsz' 144;
+  font-weight:300;
+  font-size:clamp(3.4rem,15vw,5.2rem);
+  color:var(--rose);
+  letter-spacing:-.02em;
+}
+.when .month{
+  font-family:'Fraunces',Georgia,serif;
+  font-style:italic; font-weight:400;
+  font-size:clamp(1.25rem,5vw,1.6rem);
+  color:var(--ink);
+}
+.when .time{
+  margin-top:20px;
+  font-size:.88rem; letter-spacing:.06em;
+  color:rgba(58,14,27,.72);
+}
+.when .time b{font-weight:500; color:var(--ink)}
+
+.join{
+  display:inline-block;
+  margin:36px 0 0;
+  padding:16px 40px;
+  min-height:48px;
+  background:var(--rose);
+  color:#FFF3E2;
+  text-decoration:none;
+  font-size:.78rem; font-weight:400;
+  letter-spacing:.26em; text-indent:.26em;
+  text-transform:uppercase;
+  border:none; border-radius:999px;
+  box-shadow:0 10px 26px -14px rgba(107,10,43,.85);
+  transition:background .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.join:hover,.join:focus-visible{
+  background:var(--rose-deep);
+  transform:translateY(-2px);
+  box-shadow:0 16px 30px -14px rgba(107,10,43,.9);
+}
+.join[aria-disabled="true"]{
+  background:transparent;
+  color:var(--gold);
+  border:1px dashed var(--gold);
+  box-shadow:none;
+  cursor:default;
+}
+.join[aria-disabled="true"]:hover{transform:none; background:transparent}
+
+.note{
+  margin:18px auto 0; max-width:26em;
+  font-size:.84rem; color:rgba(58,14,27,.62);
+}
+
+/* ───────────────── closing blessing ───────────────── */
+.blessing{
+  position:relative;
+  background:var(--rose-deep);
+  color:#FFE9D2;
+  text-align:center;
+  padding:74px 24px 64px;
+}
+.blessing::before{
+  content:"";
+  position:absolute; inset:0;
+  background:radial-gradient(70% 100% at 50% 0%, rgba(245,166,35,.22), transparent 66%);
+}
+.blessing p{
+  position:relative;
+  margin:0 auto;
+  max-width:19em;
+  font-family:'Fraunces',Georgia,serif;
+  font-style:italic; font-weight:300;
+  font-size:clamp(1.3rem,5.2vw,1.85rem);
+  line-height:1.5;
+}
+.blessing .sig{
+  position:relative;
+  margin-top:30px;
+  font-family:'Jost',sans-serif; font-style:normal;
+  font-size:.68rem; font-weight:400;
+  letter-spacing:.4em; text-indent:.4em;
+  text-transform:uppercase;
+  color:rgba(255,233,210,.6);
+}
+
+:focus-visible{outline:2px solid var(--rose); outline-offset:4px; border-radius:3px}
+.blessing :focus-visible{outline-color:var(--marigold)}
+
+@media (max-width:420px){
+  :root{--strand-gap:19px; --bloom:12px}
+  .toran{height:168px}
+  .card-body{padding:6px 16px 48px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important; transition:none !important}
+  .arch path{stroke-dashoffset:0 !important}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <div class="toran" id="toran" aria-hidden="true"></div>
+
+  <main class="invite">
+    <div class="card">
+
+      <svg class="arch" viewBox="-3 22 606 361" role="presentation" aria-hidden="true">
+        <path d="M 0.00 380.00 A 51.75 51.75 0 0 0 9.83 297.12 A 51.75 51.75 0 0 0 38.79 218.84 A 51.75 51.75 0 0 0 85.26 149.51 A 51.75 51.75 0 0 0 146.67 92.98 A 51.75 51.75 0 0 0 219.60 52.39 A 51.75 51.75 0 0 0 300.00 30.00 A 51.75 51.75 0 0 0 380.40 52.39 A 51.75 51.75 0 0 0 453.33 92.98 A 51.75 51.75 0 0 0 514.74 149.51 A 51.75 51.75 0 0 0 561.21 218.84 A 51.75 51.75 0 0 0 590.17 297.12 A 51.75 51.75 0 0 0 600.00 380.00"/>
+        <path class="inner" transform="translate(300 380) scale(.955 .955) translate(-300 -380)"
+              d="M 0.00 380.00 A 51.75 51.75 0 0 0 9.83 297.12 A 51.75 51.75 0 0 0 38.79 218.84 A 51.75 51.75 0 0 0 85.26 149.51 A 51.75 51.75 0 0 0 146.67 92.98 A 51.75 51.75 0 0 0 219.60 52.39 A 51.75 51.75 0 0 0 300.00 30.00 A 51.75 51.75 0 0 0 380.40 52.39 A 51.75 51.75 0 0 0 453.33 92.98 A 51.75 51.75 0 0 0 514.74 149.51 A 51.75 51.75 0 0 0 561.21 218.84 A 51.75 51.75 0 0 0 590.17 297.12 A 51.75 51.75 0 0 0 600.00 380.00"/>
+      </svg>
+
+      <div class="card-body">
+        <p class="eyebrow reveal" style="animation-delay:1.05s" lang="hi">गोद भराई<small lang="en">Godh Bharai</small></p>
+
+        <h1 class="reveal" style="animation-delay:1.15s">Karan<span class="amp">&amp;</span>Lehar</h1>
+
+        <p class="lede reveal" style="animation-delay:1.3s">
+          Two of us, and very soon <em>three</em>. Come sit with us for a morning
+          of blessings for the little one on the way.
+        </p>
+
+        <div class="rule reveal" style="animation-delay:1.4s" aria-hidden="true">
+          <i></i>
+          <svg viewBox="0 0 24 24"><path d="M12 2c1.9 2.6 2.9 5 2.9 7.2 0 1.3-.3 2.5-.9 3.7 1.6-1.2 3.4-1.8 5.3-1.8 1.4 0 2.6.2 3.7.7-1.3 5-5.1 8.2-11 8.2S2.3 16.8 1 11.8c1.1-.5 2.3-.7 3.7-.7 1.9 0 3.7.6 5.3 1.8-.6-1.2-.9-2.4-.9-3.7C9.1 7 10.1 4.6 12 2z"/></svg>
+          <i></i>
+        </div>
+
+        <div class="when reveal" style="animation-delay:1.5s">
+          <div class="day">Sunday</div>
+          <div class="date">20</div>
+          <div class="month">September 2026</div>
+          <div class="time">from <b>10:45 AM</b> IST</div>
+        </div>
+
+        <a class="join reveal" id="join" href="#" style="animation-delay:1.62s">Join the celebration</a>
+        <p class="note reveal" id="note" style="animation-delay:1.7s">
+          We're gathering online so everyone can be in the same room — wherever in the world that room happens to be.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       IF THERE IS ALSO A PLACE TO COME TO IN PERSON:
+       delete the two comment markers around the block below and fill it in.
+       ══════════════════════════════════════════════════════════════════
+  <section class="invite" style="padding-bottom:64px">
+    <div class="card" style="text-align:center">
+      <div class="rule"><i></i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg><i></i></div>
+      <p class="when"><span class="day">And in person at</span></p>
+      <p class="lede" style="margin-top:14px"><strong>VENUE NAME</strong><br>Street address, City</p>
+      <a class="join" href="https://maps.google.com/?q=FULL+ADDRESS+HERE">Open in maps</a>
+    </div>
+  </section>
+  -->
+
+  <footer class="blessing">
+    <p>May the days ahead be gentle, and the little one arrive to a house already full of love.</p>
+    <p class="sig">Karan &amp; Lehar</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  /* ── the join button only promises what it can deliver ── */
+  var join = document.getElementById('join');
+  var note = document.getElementById('note');
+  if (typeof MEET_LINK === 'string' && MEET_LINK.trim()) {
+    join.href = MEET_LINK.trim();
+    join.target = '_blank';
+    join.rel = 'noopener';
+  } else {
+    join.removeAttribute('href');
+    join.setAttribute('aria-disabled','true');
+    join.textContent = 'Joining link coming soon';
+    note.textContent = "We're gathering online so everyone can be in the same room. The link lands here shortly before we begin.";
+  }
+
+  /* ── draw the arch from its own measured length ── */
+  document.querySelectorAll('.arch path').forEach(function(p){
+    var len = Math.ceil(p.getTotalLength());
+    p.style.setProperty('--len', len);
+    p.style.strokeDasharray = len;
+  });
+
+  /* ── hang the toran, sized to the doorway it is hung across ── */
+  var toran = document.getElementById('toran');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function hang(){
+    var gap  = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--strand-gap'));
+    var size = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bloom'));
+    var n    = Math.max(5, Math.ceil((window.innerWidth + gap) / (size + gap)));
+    var mid  = (n - 1) / 2;
+    var frag = document.createDocumentFragment();
+
+    for (var i = 0; i < n; i++){
+      // long in the middle, short at the edges, with a little life in between
+      var arc  = 1 - Math.pow(Math.abs(i - mid) / mid, 1.7);
+      var jitter = (Math.sin(i * 12.9898) + 1) / 2;
+      var count = Math.round(3 + arc * 7 + jitter * 2.4);
+
+      var strand = document.createElement('div');
+      strand.className = 'strand';
+      strand.style.animationDelay = (0.06 + Math.abs(i - mid) * 0.012) + 's';
+
+      var swing = document.createElement('div');
+      swing.className = 'swing';
+      swing.style.animationDuration = (3.8 + jitter * 1.9).toFixed(2) + 's';
+      swing.style.animationDelay = (-jitter * 4).toFixed(2) + 's';
+
+      for (var j = 0; j < count; j++){
+        var bead = document.createElement('div');
+        if (j && j % 4 === 3){
+          bead.className = 'leaf';
+          bead.style.transform = 'rotate(' + (j % 8 < 4 ? 12 : -12) + 'deg)';
+        } else {
+          bead.className = 'bloom' + ((i + j) % 5 === 2 ? ' rose' : '');
+        }
+        swing.appendChild(bead);
+      }
+      strand.appendChild(swing);
+      frag.appendChild(strand);
+    }
+    toran.replaceChildren(frag);
+    if (still) toran.querySelectorAll('.strand,.swing').forEach(function(e){ e.style.animation = 'none'; });
+  }
+
+  hang();
+  var t; var w = window.innerWidth;
+  window.addEventListener('resize', function(){
+    if (Math.abs(window.innerWidth - w) < 40) return;
+    w = window.innerWidth;
+    clearTimeout(t); t = setTimeout(hang, 180);
+  });
+})();
+</script>
+</body>
+</html>
