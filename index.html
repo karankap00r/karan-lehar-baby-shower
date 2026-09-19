@@ -19,10 +19,7 @@ const MEET_LINK = "";
 <meta property="og:type" content="website">
 <meta property="og:title" content="Karan &amp; Lehar — Godh Bharai">
 <meta property="og:description" content="Sunday, 20 September 2026 · from 10:45 AM IST · Join us online, wherever you are.">
-<meta property="og:image" content="https://karankap00r.github.io/karan-lehar-baby-shower/preview.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://karankapoor.dev/karan-lehar-baby-shower/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,10 +36,11 @@ const MEET_LINK = "";
   --marigold:#F5A623;
   --marigold-deep:#DD6F17;
   --gold:#B08331;
+  --gold-ink:#8C6320;
   --leaf:#55703F;
 
-  --strand-gap:26px;
-  --bloom:14px;
+  --strand-gap:21px;
+  --bloom:16px;
 }
 
 *{box-sizing:border-box}
@@ -55,6 +53,9 @@ body{
   font-weight:300;
   line-height:1.6;
   overflow-x:hidden;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
 /* jaali — a faint lattice screen behind everything */
@@ -62,8 +63,8 @@ body::before{
   content:"";
   position:fixed; inset:0; z-index:0; pointer-events:none;
   background:
-    repeating-linear-gradient(45deg, rgba(176,131,49,.16) 0 1px, transparent 1px 22px),
-    repeating-linear-gradient(-45deg, rgba(176,131,49,.16) 0 1px, transparent 1px 22px);
+    repeating-linear-gradient(45deg, rgba(176,131,49,.11) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(-45deg, rgba(176,131,49,.11) 0 1px, transparent 1px 26px);
   -webkit-mask-image:radial-gradient(120% 80% at 50% 12%, #000 0%, transparent 72%);
           mask-image:radial-gradient(120% 80% at 50% 12%, #000 0%, transparent 72%);
 }
@@ -72,7 +73,8 @@ body::after{
   position:fixed; inset:0; z-index:0; pointer-events:none;
   background:radial-gradient(90% 55% at 50% 4%, var(--ivory-deep) 0%, transparent 62%);
 }
-.page{position:relative; z-index:1}
+.page{position:relative; z-index:1; flex:1 0 auto; display:flex; flex-direction:column}
+.page > .blessing{margin-top:auto}
 
 /* ───────────────── toran: marigolds hung across the doorway ───────────────── */
 .toran{
@@ -80,7 +82,7 @@ body::after{
   display:flex;
   justify-content:center;
   gap:var(--strand-gap);
-  height:200px;
+  height:172px;
   overflow:hidden;
   padding-top:7px;
 }
@@ -104,7 +106,7 @@ body::after{
 }
 .bloom{
   width:var(--bloom); height:var(--bloom); border-radius:50%;
-  margin-bottom:-3px;
+  margin-bottom:-5px;
   background:radial-gradient(circle at 36% 32%, #FFD27A 0%, var(--marigold) 42%, var(--marigold-deep) 100%);
   box-shadow:inset 0 -2px 3px rgba(122,52,6,.30);
 }
@@ -113,11 +115,11 @@ body::after{
   box-shadow:inset 0 -2px 3px rgba(60,4,20,.35);
 }
 .leaf{
-  width:9px; height:17px;
-  margin-bottom:-2px;
-  border-radius:50% 4px 50% 4px;
-  background:linear-gradient(160deg,#6E8A54,var(--leaf));
-  transform:rotate(12deg);
+  width:13px; height:13px;
+  margin:1px 0 -1px;
+  border-radius:0 100% 0 100%;
+  background:linear-gradient(150deg,#74905A,var(--leaf));
+  transform:rotate(45deg);
 }
 @keyframes drop{ from{transform:translateY(-118%)} to{transform:translateY(0)} }
 @keyframes sway{ 0%,100%{transform:rotate(-2.6deg)} 50%{transform:rotate(2.6deg)} }
@@ -125,7 +127,7 @@ body::after{
 /* ───────────────── the invitation, framed as a doorway ───────────────── */
 .invite{
   display:flex; justify-content:center;
-  padding:0 20px 92px;
+  padding:0 20px 74px;
 }
 .card{width:100%; max-width:560px}
 
@@ -136,6 +138,8 @@ body::after{
 }
 .arch path.inner{stroke-width:.7; opacity:.5; animation-delay:.75s}
 @keyframes draw{ from{stroke-dashoffset:var(--len)} to{stroke-dashoffset:0} }
+
+.lift{margin-top:-25%}
 
 .card-body{
   border-left:1.4px solid var(--gold);
@@ -167,12 +171,12 @@ body::after{
   font-size:.66rem; font-weight:400;
   letter-spacing:.42em; text-indent:.42em;
   text-transform:uppercase;
-  color:var(--gold);
+  color:var(--gold-ink);
   margin-top:8px;
 }
 
 h1{
-  margin:.28em 0 0;
+  margin:.2em 0 0;
   font-family:'Fraunces',Georgia,serif;
   font-variation-settings:'SOFT' 40,'WONK' 1,'opsz' 120;
   font-weight:500;
@@ -189,7 +193,7 @@ h1 .amp{
 }
 
 .lede{
-  margin:1.05em auto 0;
+  margin:.92em auto 0;
   max-width:23em;
   font-size:clamp(1rem,3.7vw,1.1rem);
   color:rgba(58,14,27,.78);
@@ -197,16 +201,16 @@ h1 .amp{
 .lede em{font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400}
 
 /* lotus rule */
-.rule{display:flex; align-items:center; gap:14px; margin:34px auto 30px; max-width:250px}
+.rule{display:flex; align-items:center; gap:14px; margin:30px auto 26px; max-width:250px}
 .rule i{flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--gold))}
 .rule i+i{background:linear-gradient(90deg,var(--gold),transparent)}
-.rule svg{flex:0 0 auto; width:26px; height:26px; fill:var(--rose); opacity:.9}
+.rule svg{flex:0 0 auto; width:30px; height:30px; fill:var(--rose); opacity:.9}
 
 .when{line-height:1}
 .when .day{
   font-size:.68rem; font-weight:400;
   letter-spacing:.44em; text-indent:.44em;
-  text-transform:uppercase; color:var(--gold);
+  text-transform:uppercase; color:var(--gold-ink);
 }
 .when .date{
   margin:12px 0 6px;
@@ -225,8 +229,8 @@ h1 .amp{
 }
 .when .time{
   margin-top:20px;
-  font-size:.88rem; letter-spacing:.06em;
-  color:rgba(58,14,27,.72);
+  font-size:.9rem; letter-spacing:.06em;
+  color:rgba(58,14,27,.80);
 }
 .when .time b{font-weight:500; color:var(--ink)}
 
@@ -261,7 +265,7 @@ h1 .amp{
 
 .note{
   margin:18px auto 0; max-width:26em;
-  font-size:.84rem; color:rgba(58,14,27,.62);
+  font-size:.86rem; color:rgba(58,14,27,.74);
 }
 
 /* ───────────────── closing blessing ───────────────── */
@@ -300,9 +304,12 @@ h1 .amp{
 .blessing :focus-visible{outline-color:var(--marigold)}
 
 @media (max-width:420px){
-  :root{--strand-gap:19px; --bloom:12px}
-  .toran{height:168px}
+  :root{--strand-gap:16px; --bloom:13px}
+  .toran{height:148px}
   .card-body{padding:6px 16px 48px}
+  .rule{margin:24px auto 22px}
+  .when .time{margin-top:16px}
+  .join{margin-top:30px; padding:16px 30px}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -327,6 +334,7 @@ h1 .amp{
       </svg>
 
       <div class="card-body">
+        <div class="lift">
         <p class="eyebrow reveal" style="animation-delay:1.05s" lang="hi">गोद भराई<small lang="en">Godh Bharai</small></p>
 
         <h1 class="reveal" style="animation-delay:1.15s">Karan<span class="amp">&amp;</span>Lehar</h1>
@@ -353,6 +361,7 @@ h1 .amp{
         <p class="note reveal" id="note" style="animation-delay:1.7s">
           We're gathering online so everyone can be in the same room — wherever in the world that room happens to be.
         </p>
+        </div>
       </div>
 
     </div>
@@ -417,7 +426,7 @@ h1 .amp{
       // long in the middle, short at the edges, with a little life in between
       var arc  = 1 - Math.pow(Math.abs(i - mid) / mid, 1.7);
       var jitter = (Math.sin(i * 12.9898) + 1) / 2;
-      var count = Math.round(3 + arc * 7 + jitter * 2.4);
+      var count = Math.round(4 + arc * 8 + jitter * 2.6);
 
       var strand = document.createElement('div');
       strand.className = 'strand';
@@ -432,7 +441,7 @@ h1 .amp{
         var bead = document.createElement('div');
         if (j && j % 4 === 3){
           bead.className = 'leaf';
-          bead.style.transform = 'rotate(' + (j % 8 < 4 ? 12 : -12) + 'deg)';
+          bead.style.transform = 'rotate(' + (j % 8 < 4 ? 45 : 135) + 'deg)';
         } else {
           bead.className = 'bloom' + ((i + j) % 5 === 2 ? ' rose' : '');
         }
